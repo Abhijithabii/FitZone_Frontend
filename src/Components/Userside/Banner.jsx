@@ -1,4 +1,5 @@
 import React from "react";
+import b1Image from "./img/b1.png"; //
 
 function Banner() {
   return (
@@ -11,7 +12,7 @@ function Banner() {
         
       </div>
       <div className=" absolute top-40 right-20">
-        <img src="./img/b1.png" alt="" />
+        <img src={b1Image} alt=" banner image" />
       </div>
     </div>
   );
