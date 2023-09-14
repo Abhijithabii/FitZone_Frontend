@@ -11,9 +11,6 @@ function UserProfile() {
         <UserNavbar/>
         <div className='absolute top-0 w-full' >
           <UserProfileBanner/>
-          
-          
-
         </div>
       </div>
     
