@@ -49,8 +49,7 @@ function AdminCourseManagement() {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/adminside/courses/');
-      console.log(response.data);
+      const response = await axios.get(`${BACKEND_BASE_URL}/adminside/courses/`);
       setCourses(response.data)
     }
     catch (error) {

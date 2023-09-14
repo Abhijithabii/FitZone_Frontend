@@ -34,7 +34,7 @@ function AdminUserManagement() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/adminside/users/');
+      const response = await axios.get(`${BACKEND_BASE_URL}/adminside/users/`);
       const filteredData = response.data.filter((user) => !user.is_staff);
       setUsers(filteredData);
     } catch (error) {
@@ -52,7 +52,7 @@ function AdminUserManagement() {
       setModalOpen(false);
       // Show the spinner while waiting for the response
       setShowSpinner(true);
-      const response = await axios.post('http://127.0.0.1:8000/adminside/add-user/', {
+      const response = await axios.post(`${BACKEND_BASE_URL}/adminside/add-user/`, {
         username,
         email,
       });

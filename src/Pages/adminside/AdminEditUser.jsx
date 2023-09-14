@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import AdminSidebar from '../../Components/Adminside/AdminSidebar'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { BACKEND_BASE_URL } from '../../common/CommonUrl';
 
 const AdminEditUser = () => {
 
@@ -11,7 +12,7 @@ const AdminEditUser = () => {
     useEffect(() => {
       const fetchUserDetails = async () => {
         try{
-          const response = await axios.get(`http://127.0.0.1:8000/adminside/edit-user/${userId}`);
+          const response = await axios.get(`${BACKEND_BASE_URL}/adminside/edit-user/${userId}`);
           setUserDetails(response.data);
         }catch (error) {
           console.error(error);

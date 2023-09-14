@@ -1,151 +1,207 @@
-import React, { useEffect, useState } from 'react'
-import AdminSidebar from '../../Components/Adminside/AdminSidebar'
-import { FaUnlockAlt,FaLock } from 'react-icons/fa';
-import axios from 'axios';
-import { BACKEND_BASE_URL } from '../../common/CommonUrl';
-import AdminTrainerAddModal from '../../Components/Adminside/AdminTrainerAddModal';
-import { Avatar, Button, Card, IconButton, Typography } from '@material-tailwind/react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import React, { useEffect, useState } from "react";
+import AdminSidebar from "../../Components/Adminside/AdminSidebar";
+import { FaUnlockAlt, FaLock } from "react-icons/fa";
+import axios from "axios";
+import { BACKEND_BASE_URL } from "../../common/CommonUrl";
+import AdminTrainerAddModal from "../../Components/Adminside/AdminTrainerAddModal";
+import {
+  Avatar,
+  Button,
+  Card,
+  IconButton,
+  Typography,
+} from "@material-tailwind/react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 function AdminTrainerManagement() {
-
-  const TABLE_HEAD = ["ID", "Trainer Image", "Trainer Name", "Email", "Course", "Action"];
-
+  const TABLE_HEAD = [
+    "ID",
+    "Trainer Image",
+    "Trainer Name",
+    "Email",
+    "Course",
+    "Action",
+  ];
 
   const [trainers, setTrainers] = useState([]);
 
-  const handleTrainerAdded = () =>{
+  const handleTrainerAdded = () => {
     fetchTrainers();
-  }
+  };
 
-
-  useEffect(()=>{
+  useEffect(() => {
     fetchTrainers();
-  },[]);
-
-
-
+  }, []);
 
   const fetchTrainers = async () => {
-    try{
-      const response = await axios.get(`${BACKEND_BASE_URL}/adminside/trainers/`)
-      
-      setTrainers(response.data)
-    }
-    catch (error) {
-      console.error("error on fetching", error)
-    }
-  }
+    try {
+      const response = await axios.get(
+        `${BACKEND_BASE_URL}/adminside/trainers/`
+      );
 
+      setTrainers(response.data);
+    } catch (error) {
+      console.error("error on fetching", error);
+    }
+  };
 
   const trainerBlockUnblock = (userId) => {
     try {
-      axios.put(`${BACKEND_BASE_URL}/adminside/edit-user/${userId}/`)
-        .then(response => {
+      axios
+        .put(`${BACKEND_BASE_URL}/adminside/edit-user/${userId}/`)
+        .then((response) => {
           console.log(response.data);
-          fetchTrainers() // This will log the response data from the backend
+          fetchTrainers(); // This will log the response data from the backend
           // Handle the response data as needed
-        })
-        // .catch(error => {
-        //   console.error("Error on working", error);
-        //   // Handle errors here if any
-        // });
+        });
+      // .catch(error => {
+      //   console.error("Error on working", error);
+      //   // Handle errors here if any
+      // });
     } catch (error) {
       console.error("Error on working", error);
       // Handle errors here if any
     }
   };
 
-
   const [currentPage, setCurrentPage] = useState(1);
 
   const ITEMS_PER_PAGE = 3;
 
-    // Calculate total number of pages
+  // Calculate total number of pages
   const totalPages = Math.ceil(trainers.length / ITEMS_PER_PAGE);
 
-    // Get current page's data
-  const currentTrainers = trainers.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  // Get current page's data
+  const currentTrainers = trainers.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
-    // Generate pagination buttons and their click handlers
-    const getPageItemProps = (pageNumber) => ({
-      onClick: () => setCurrentPage(pageNumber),
-      className: pageNumber === currentPage ? "bg-blue-500 text-white" : "text-black bg-white",
-    });
-
-
+  // Generate pagination buttons and their click handlers
+  const getPageItemProps = (pageNumber) => ({
+    onClick: () => setCurrentPage(pageNumber),
+    className:
+      pageNumber === currentPage
+        ? "bg-blue-500 text-white"
+        : "text-black bg-white",
+  });
 
   return (
     <div>
-      <div className='flex' >
-        <AdminSidebar/>
-          <div className="relative flex flex-col justify-around w-full items-center mt-20">
-            <h1 className=' text-3xl text-black font-bold py-5'>Trainers List</h1>
-            <div className="overflow-x-auto lg:w-3/4 w-full">
-              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                <div className="overflow-hidden">
+      <div className="flex">
+        <AdminSidebar />
+        <div className="relative flex flex-col justify-around w-full items-center mt-20">
+          <h1 className=" text-3xl text-black font-bold py-5">Trainers List</h1>
+          <div className="overflow-x-auto lg:w-3/4 w-full">
+            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+              <div className="overflow-hidden">
                 <Card className="h-full w-full overflow-x-scroll">
                   <table className="w-full min-w-max table-auto text-left">
                     <thead>
                       <tr>
                         {TABLE_HEAD.map((head) => (
-                        <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal leading-none opacity-70">
-                            {head}
-                          </Typography>
-                        </th>
+                          <th
+                            key={head}
+                            className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
+                          >
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal leading-none opacity-70"
+                            >
+                              {head}
+                            </Typography>
+                          </th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {currentTrainers.map((trainer, index) => (
-                      <tr key={trainer.id} className="even:bg-blue-gray-50/50">
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-normal">
-                            {index+1}
-                          </Typography>
-                        </td>
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-normal">
-                          <Avatar src={`${BACKEND_BASE_URL}${trainer.trainer_photo}`} alt="avatar" variant="rounded" />
-                          </Typography>
-                        </td>
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-normal">
-                            {trainer.user.username}
-                          </Typography>
-                        </td>
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-medium">
-                            {trainer.user.email}
-                          </Typography>
-                        </td>
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-medium">
-                            {trainer.course.course_name}
-                          </Typography>
-                        </td>
-                        <td className="p-4">
-                          <Typography variant="small" color="blue-gray" className="font-medium">
-                            { !trainer.user.is_blocked ?  (
-                                <FaUnlockAlt onClick={()=>trainerBlockUnblock(trainer.user.id)} className='text-xl cursor-pointer'/>
+                        <tr
+                          key={trainer.id}
+                          className="even:bg-blue-gray-50/50"
+                        >
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              {index + 1}
+                            </Typography>
+                          </td>
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              <Avatar
+                                src={`${BACKEND_BASE_URL}${trainer.trainer_photo}`}
+                                alt="avatar"
+                                variant="rounded"
+                              />
+                            </Typography>
+                          </td>
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              {trainer.user.username}
+                            </Typography>
+                          </td>
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-medium"
+                            >
+                              {trainer.user.email}
+                            </Typography>
+                          </td>
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-medium"
+                            >
+                              {trainer.course.course_name}
+                            </Typography>
+                          </td>
+                          <td className="p-4">
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-medium"
+                            >
+                              {!trainer.user.is_blocked ? (
+                                <FaUnlockAlt
+                                  onClick={() =>
+                                    trainerBlockUnblock(trainer.user.id)
+                                  }
+                                  className="text-xl cursor-pointer"
+                                />
                               ) : (
-                                <FaLock onClick={()=>trainerBlockUnblock(trainer.user.id)} className='text-xl cursor-pointer'/>
-                              ) }
-                          </Typography>
-                        </td>
-                      </tr>
+                                <FaLock
+                                  onClick={() =>
+                                    trainerBlockUnblock(trainer.user.id)
+                                  }
+                                  className="text-xl cursor-pointer"
+                                />
+                              )}
+                            </Typography>
+                          </td>
+                        </tr>
                       ))}
                     </tbody>
                   </table>
-                </Card>   
+                </Card>
               </div>
             </div>
-            <div className='absolute top-10 left-10 z-10'>
-                <AdminTrainerAddModal onTrainerAdded={handleTrainerAdded}  />
+            <div className="absolute top-10 left-10 z-10">
+              <AdminTrainerAddModal onTrainerAdded={handleTrainerAdded} />
             </div>
           </div>
           <div className="mb-32 flex items-center gap-4">
@@ -159,10 +215,10 @@ function AdminTrainerManagement() {
             </Button>
             <div className="flex items-center gap-2">
               {[...Array(totalPages)].map((_, index) => (
-              <IconButton key={index} {...getPageItemProps(index + 1)}>
-                {index + 1}
-              </IconButton>
-                ))}
+                <IconButton key={index} {...getPageItemProps(index + 1)}>
+                  {index + 1}
+                </IconButton>
+              ))}
             </div>
             <Button
               variant="text"
@@ -177,15 +233,13 @@ function AdminTrainerManagement() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AdminTrainerManagement
+export default AdminTrainerManagement;
 
-
-
-
-{/* <table className="min-w-full text-left text-sm font-light border-gray-600 border-2">
+{
+  /* <table className="min-w-full text-left text-sm font-light border-gray-600 border-2">
 <thead className="border-b font-medium dark:border-neutral-500">
   <tr className=' text-white bg-slate-500'>
     <th scope="col" className="px-6 py-4">ID</th>
@@ -220,4 +274,5 @@ export default AdminTrainerManagement
 ))}
 
 </tbody>
-</table> */}
+</table> */
+}

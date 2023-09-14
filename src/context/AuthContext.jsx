@@ -52,7 +52,7 @@ export const AuthProvider = ({children}) => {
 
     let loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://localhost:8000/api/token/', {
+        const response = await fetch(`${BACKEND_BASE_URL}/api/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

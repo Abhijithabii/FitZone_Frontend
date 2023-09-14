@@ -2,7 +2,6 @@ import React from 'react';
 import { BACKEND_BASE_URL } from '../../common/CommonUrl';
 
 const ChatSidebar = ({ rooms, activeRoomId, setActiveRoomId }) => {
-  console.log(rooms,'rommms')
   return (
     <div className="flex flex-col bg-red-200 h-screen w-1/4 border-r-2 border-gray-300">
       <h2 className="text-xl font-bold p-4 bg-red-300 text-Black">Trainers</h2>

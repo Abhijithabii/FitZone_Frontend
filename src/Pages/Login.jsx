@@ -49,7 +49,7 @@ return (
                       type= { showpassword ? "text" : "password"}
                       name='password'
                       id="typePasswordX-2"
-                      className="form-input w-full rounded-lg p-3 bg-transparent border-2 border-white text-white"
+                      className="form-input w-full rounded-lg p-3 bg-transparent border-2 border-white text-black"
                       placeholder="Password"
                     />
                     { showpassword ? ( 

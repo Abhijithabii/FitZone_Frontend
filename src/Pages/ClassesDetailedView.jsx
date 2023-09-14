@@ -52,7 +52,6 @@ function ClassesDetailedView() {
         if (res.status === 200) {
           setCourseStatus(true);
         }
-        console.log(res.status);
       });
   };
 
@@ -65,8 +64,6 @@ function ClassesDetailedView() {
   const handleTrainerChange = (trainer) => {
     setSelectedTrainer(trainer);
   };
-
-  console.log(trainers);
 
   return (
     <div>
@@ -83,18 +80,18 @@ function ClassesDetailedView() {
                   <img
                     className="w-full h-full "
                     src={`${BACKEND_BASE_URL}${courseData?.course_image}`}
-                    alt=""
+                    alt="course_image"
                   />
                 </div>
               </div>
               <div className="py-20 px-5">
                 <h1 className=" text-center text-4xl font-black">
-                  {" "}
+
                   <u>{courseData?.course_name} </u>
                 </h1>
                 <p className="text-center pt-16 text-xl">
-                  {" "}
-                  {courseData?.description}{" "}
+
+                  {courseData?.description}
                 </p>
 
                 <p className="pt-16">

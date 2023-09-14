@@ -31,23 +31,9 @@ function Otp() {
   useEffect(() => {                                       //when the page opening time the first input will be default selected by using this useeffect
     inputRef.current[0].focus()
 
-    // inputRef.current[0].addEventListener("paste", pasteText)
-
-    // return () => inputRef.current[0].removeEventListener("paste", pasteText)
   },[]);
 
 
-  // const pasteText = (event) => {
-  //     const pastedText = event.clipboardData.getData("text")
-      
-  //     const fieldValues = {};
-  //     Object.keys(otp).forEach((keys, index) => {
-  //       fieldValues[keys] = pastedText[index]
-  //       setOtp(fieldValues)
-  //       inputRef.current[5].focus()
-  //     })
-
-  // };
 
 
                   
@@ -107,15 +93,11 @@ function Otp() {
     e.preventDefault();
     const otpString = otp.digitOne + otp.digitTwo + otp.digitThree + otp.digitFour + otp.digitFive + otp.digitSix;
 
-    console.log(otpString);
-    console.log(email);
     try {
       const response = await axios.post(`${BACKEND_BASE_URL}/api/verifyotp/`,{
         email: email, // Assuming you have the 'email' state in your component
         otp: otpString 
       })
-      console.log(response);
-      console.log(response.status,'---------response');
       if (response.data.status === 200) {
         // OTP verification successful, redirect to the login page
         toast.success("OTP Verification Success")

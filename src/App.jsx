@@ -23,8 +23,6 @@ import PageNotFound from './Pages/PageNotFound';
 import ClassesDetailedView from './Pages/ClassesDetailedView';
 import UserProfile from './Pages/UserProfile';
 import TrainerHome from './Pages/Trainer/TrainerHome';
-import Message from './Components/Userside/Message';
-import Checkout from './Components/Userside/Checkout';
 import StudentsListingPage from './Pages/Trainer/StudentsListingPage';
 import TrainerProfile from './Pages/Trainer/TrainerProfile';
 import Chat from './Components/Chat/Chat';
@@ -54,13 +52,7 @@ function App() {
 
           <Route exact path="/" element={<Home/>} />
           <Route path='/classesdetails/:courseId' element={<PrivateRoute><ClassesDetailedView/></PrivateRoute>} />
-          <Route exact path="/checkout/:course_id" element={<Checkout/>}/> 
-          <Route exact path='/success' element={<Message/>}/> 
-
           <Route path='/profile' element={<PrivateRoute><UserProfile/></PrivateRoute>} />
-      
-
-
           <Route path='/trainer' element={<PrivateRoute><TrainerHome/></PrivateRoute>} />
           <Route path='/trainer/students/' element={<PrivateRoute><StudentsListingPage/></PrivateRoute>} />
           <Route path='/trainer/profile/' element={<PrivateRoute><TrainerProfile/></PrivateRoute>} />

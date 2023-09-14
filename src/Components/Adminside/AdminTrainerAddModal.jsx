@@ -61,7 +61,6 @@ function AdminTrainerAddModal({ onTrainerAdded }) {
     formData.append("email", email);
     formData.append("course_id", selectedCourse);
     formData.append("image", selectedImage);
-    console.log(selectedCourse, "------selected course");
 
     try {
       setShowSpinner(true);

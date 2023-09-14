@@ -1,24 +1,8 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import { useFormik } from "formik";
-import { loginSchema } from "../../utils/Schemas";
 
 function AdminLogin() {
   let { loginUser } = useContext(AuthContext);
-
-  const initialValues = {
-    email: "",
-    password: "",
-  };
-
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-  useFormik({
-    initialValues: initialValues,
-    validationSchema: loginSchema,
-    onSubmit: (values) => {
-      loginUser(values);
-    },
-  });
 
   return (
     <div>
@@ -49,15 +33,8 @@ function AdminLogin() {
                 id="email"
                 type="email"
                 name="email"
-                autoComplete="off"
                 placeholder="Enter Your Email Address"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
               />
-              {errors.email && touched.email ? (
-                    <p className=" text-red-400 text-sm "> {errors.email} </p>
-                  ) : null}
             </div>
             <div className="mb-6">
               <label
@@ -70,16 +47,9 @@ function AdminLogin() {
                 className="form-input w-full rounded-lg p-3 bg-transparent border-2 border-white text-white"
                 id="password"
                 type="password"
-                autoComplete="off"
                 name="password"
                 placeholder="*********"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
               />
-               {errors.password && touched.password ? (
-                    <p className=" text-red-400 text-sm"> {errors.password} </p>
-                  ) : null}
             </div>
             <div className="flex items-center justify-center">
               <button

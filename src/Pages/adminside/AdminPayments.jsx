@@ -40,7 +40,6 @@ function AdminPayments() {
     // Filter payments based on the selected date range
     let filteredPayments = payments.filter((payment) => {
       let paymentDate = new Date(payment.purchased_date);
-      console.log(paymentDate, "-------payssssss");
       return paymentDate >= startDate - 1 && paymentDate <= endDate;
     });
     if (filteredPayments.length === 0) {

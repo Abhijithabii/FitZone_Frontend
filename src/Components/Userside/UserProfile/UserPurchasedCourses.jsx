@@ -17,8 +17,6 @@ function UserPurchasedCourses() {
       });
   };
 
-  console.log(purchasedCourses);
-
   useEffect(() => {
     fetchPurchasedCourses();
   }, []);
@@ -26,11 +24,11 @@ function UserPurchasedCourses() {
   return (
     <div>
       <h1 className="uppercase text-center text-2xl font-black py-8">
-        {" "}
+    
         <span className="tracking-tighter text-blue-500">
-          {" "}
+      
           ------------
-        </span>{" "}
+        </span>
         Purchased Courses
         <span className="tracking-tighter text-blue-500 "> ------------</span>
       </h1>

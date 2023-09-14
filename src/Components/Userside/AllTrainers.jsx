@@ -24,10 +24,16 @@ function AllTrainers() {
   return (
     <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 bg-white">
       <div className="w-full ">
-        <div className="w-full h-screen sticky top-0 " style={{ backgroundImage: "url('/img/course_background.avif')" , backgroundSize: "cover" }}>
-        <h1 className="text-center pt-80 pl-16  font-serif text-6xl font-black " >
-          Trainers
-        </h1>
+        <div
+          className="w-full h-screen sticky top-0 "
+          style={{
+            backgroundImage: "url('/img/course_background.avif')",
+            backgroundSize: "cover",
+          }}
+        >
+          <h1 className="text-center pt-80 pl-16  font-serif text-6xl font-black ">
+            Trainers
+          </h1>
         </div>
       </div>
       <div className=" w-1/2 ">

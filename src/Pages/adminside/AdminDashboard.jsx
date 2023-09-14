@@ -11,8 +11,18 @@ function AdminDashboard() {
   const [courses, setCourses] = useState([]);
   const [monthlyData, setMonthlyData] = useState([]);
   const monthNames = [
-    'Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July',
-    'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+    "Jan",
+    "Feb",
+    "Mar",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
 
   const fetchUsers = async () => {
@@ -53,36 +63,32 @@ function AdminDashboard() {
       .get(`${BACKEND_BASE_URL}/adminside/monthly-purchase/`)
       .then((response) => {
         const data = response.data;
-        setMonthlyData(data)
+        setMonthlyData(data);
         console.log(data);
-
       })
       .catch((error) => {
         console.error(error);
       });
-  }
+  };
 
   const monthLabels = monthlyData.map((item) => {
     const monthIndex = item.month - 1; // Adjust month number to match array index
     return `${monthNames[monthIndex]} ${item.year}`;
   });
 
-
   const totalAmount = monthlyData.reduce((total, item) => {
     const totalPaymentAsInt = parseInt(item.total_payment, 10); // Parse as base 10 (decimal) integer
     return total + totalPaymentAsInt;
   }, 0);
 
-
-
   const revenueData = {
     labels: monthLabels,
     datasets: [
       {
-        label: 'Monthly Revenue',
-        data: monthlyData.map(item => item.total_payment),
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        label: "Monthly Revenue",
+        data: monthlyData.map((item) => item.total_payment),
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
       },
     ],
@@ -91,17 +97,13 @@ function AdminDashboard() {
   const revenueOptions = {
     scales: {
       x: {
-        id: 'x',
+        id: "x",
       },
       y: {
         beginAtZero: true,
       },
     },
   };
-  
-
-
-  
 
   useEffect(() => {
     fetchUsers();
@@ -122,7 +124,6 @@ function AdminDashboard() {
                   Total Students
                 </h1>
                 <p className="text-3xl text-center mt-10 font-black text-white">
-                  
                   {users.length}
                 </p>
               </div>
@@ -131,7 +132,6 @@ function AdminDashboard() {
                   Total Trainers
                 </h1>
                 <p className="text-3xl text-center mt-10 font-black text-white">
-                  
                   {trainers.length}
                 </p>
               </div>
@@ -140,7 +140,6 @@ function AdminDashboard() {
                   Total Courses
                 </h1>
                 <p className="text-3xl text-center mt-10 font-black text-white">
-                  
                   {courses.length}
                 </p>
               </div>
@@ -149,15 +148,13 @@ function AdminDashboard() {
                   Total Revenue
                 </h1>
                 <p className="text-3xl text-center mt-10 font-black text-white">
-                  
                   {totalAmount}
                 </p>
               </div>
             </div>
 
             <div className="w-full h-96 p-8 bg-gray-200 mt-16">
-            <Bar data={revenueData} options={revenueOptions} />
-             
+              <Bar data={revenueData} options={revenueOptions} />
             </div>
           </div>
         </div>
