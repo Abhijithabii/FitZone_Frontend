@@ -11,6 +11,7 @@ function AdminCourseScheduleModal() {
       <Button type="button" onClick={() => setModalOpen(!isModalOpen)}>
         {isModalOpen ? "X" : "New Schedule"}
       </Button>
+      {/* this page not needed */}
 
       <div
         className={`modal z-50 backdrop-blur-sm border-2 p-5 rounded-2xl ${

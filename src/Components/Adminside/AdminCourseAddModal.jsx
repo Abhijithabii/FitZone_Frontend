@@ -7,7 +7,7 @@ import { Button } from "@material-tailwind/react";
 function AdminCourseAddModal({ onCourseAdded }) {
   // Createted a ref to access the file input element
   const fileInputRef = useRef(null);
-
+// cousred asdeding
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [courseName, setCourseName] = useState("");
