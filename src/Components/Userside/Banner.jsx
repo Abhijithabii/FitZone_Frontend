@@ -11,7 +11,7 @@ function Banner() {
         
       </div>
       <div className=" absolute top-40 right-20">
-        <img src="/img/b1.png" alt="" />
+        <img src="./img/b1.png" alt="" />
       </div>
     </div>
   );

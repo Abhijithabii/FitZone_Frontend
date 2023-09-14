@@ -18,7 +18,7 @@ function Login() {
 
 return (
   <div>
-    <div className='flex flex-col md:flex-row h-screen bg-blend-darken bg-cover bg-center'  style={{ backgroundImage: "url('/img/fitzonebg.jpg')", backgroundSize: "cover" }}>
+    <div className='flex flex-col md:flex-row h-screen bg-blend-darken bg-cover bg-center'  style={{ backgroundImage: "url('./img/fitzonebg.jpg')", backgroundSize: "cover" }}>
       <div className="flex flex-col justify-center md:w-1/2  text-white">
           {/* Content here */}
         <h1 className='text-center font-black text-3xl '>Don't have an account</h1>
