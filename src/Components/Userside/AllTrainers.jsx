@@ -32,7 +32,7 @@ function AllTrainers() {
           
         </div>
       </div>
-      <div className=" w-1/2 ">
+      <div className="w-full sm:w-1/2 ">
         <div className=" py-20 mx-auto grid grid-cols-1 gap-2">
           {trainers.map((trainer, index) => (
             <div className="relative my-16 ">

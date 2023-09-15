@@ -58,7 +58,7 @@ function TrainerChat() {
     useEffect(() => {
       if (activeRoomId) {
         socketRef.current = new WebSocket(
-          `ws://localhost:8000/ws/chat/${activeRoomId}/`
+          `ws://${BACKEND_BASE_URL}/ws/chat/${activeRoomId}/`
         );
   
         socketRef.current.onmessage = (event) => {
