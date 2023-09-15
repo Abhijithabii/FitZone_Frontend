@@ -29,9 +29,9 @@ function AllCourses() {
       <div className="w-full ">
         <div className="w-full h-full lg:h-screen sticky top-0 ">
           <img className=" relative" src={coursebg} alt="" />
-          {/* <h1 className=" absolute top-0 left-36 text-center pt-80 pl-16  font-serif text-6xl font-black " >
+          <h1 className=" absolute top-0 left-36 text-center pt-80 pl-16  font-serif text-6xl font-black " >
           Courses
-        </h1> */}
+        </h1>
         </div>
       </div>
       <div className=" w-full sm:w-1/2  ">
