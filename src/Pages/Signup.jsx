@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { BACKEND_BASE_URL } from "../common/CommonUrl";
 import { toast } from "react-hot-toast";
 import signupbg from '../../img/fitzonebg.jpg'
+import registrationLoadingGif from '../../img/registration_loading.gif'
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -57,7 +58,7 @@ function Signup() {
           </h1>
           <img
             className="w-60 h-60 object-cover"
-            src="/img/registration_loading.gif"
+            src={registrationLoadingGif}
             alt=""
           />
         </div>

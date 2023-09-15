@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BACKEND_BASE_URL } from "../../common/CommonUrl";
-import trainerbg from '../../../img/course_background.avif'
+import trainerbg from '../../../img/trainerbg.jpg'
 
 function AllTrainers() {
   const [trainers, setTrainers] = useState([]);
@@ -26,15 +26,10 @@ function AllTrainers() {
     <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 bg-white">
       <div className="w-full ">
         <div
-          className="w-full h-screen sticky top-0 "
-          style={{
-            backgroundImage: `url(${trainerbg})`,
-            backgroundSize: "cover",
-          }}
+          className="w-full h-full lg:h-screen sticky top-0 " 
         >
-          <h1 className="text-center pt-80 pl-16  font-serif text-6xl font-black ">
-            Trainers
-          </h1>
+          <img className=" w-full h-full" src={trainerbg} alt="" />
+          
         </div>
       </div>
       <div className=" w-1/2 ">
