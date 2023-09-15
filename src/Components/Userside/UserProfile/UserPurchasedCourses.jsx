@@ -55,7 +55,7 @@ function UserPurchasedCourses() {
               </div>
               <div className="flex flex-col items-center">
                 <h1 className="text-xl pt-5 ">
-                  {" "}
+              
                   Course: {course.selected_course.course_name}{" "}
                 </h1>
                 <h1 className="pt-3">

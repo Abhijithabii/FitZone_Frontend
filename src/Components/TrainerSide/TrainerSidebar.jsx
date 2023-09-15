@@ -9,6 +9,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import AuthContext from "../../context/AuthContext";
+import fitzonelogo from '../../../img/logo.png'
 
 function TrainerSidebar() {
   const [open, setOpen] = useState(true);
@@ -86,7 +87,7 @@ function TrainerSidebar() {
 
         <div className=" inline-flex">
           <img
-            src="/img/logo.png" // Replace 'path/to/your/image.png' with the actual image URL or path
+            src={fitzonelogo} // Replace 'path/to/your/image.png' with the actual image URL or path
             alt="FitZone Logo"
             className={`bg-amber-300 rounded cursor-pointer block float-left mr-2 duration-500 ${
               open && "rotate-[360deg]"

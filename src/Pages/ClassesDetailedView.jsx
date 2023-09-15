@@ -6,6 +6,7 @@ import { BACKEND_BASE_URL } from "../common/CommonUrl";
 import { toast } from "react-hot-toast";
 import { Button } from "@material-tailwind/react";
 import AuthContext from "../context/AuthContext";
+import classbg from '../../img/classbg.jpg'
 
 function ClassesDetailedView() {
   const [selectedTime, setSelectedTime] = useState("");
@@ -71,7 +72,7 @@ function ClassesDetailedView() {
         <UserNavbar />
         <div className="absolute top-0 w-full">
           <div className="h-96 w-full">
-            <img className="w-full h-full" src="/img/classbg.jpg" alt="" />
+            <img className="w-full h-full" src={classbg} alt="" />
           </div>
           <div className="absolute top-80 left-1/2 transform -translate-x-1/2  bg-white border rounded-3xl w-5/6">
             <div className="grid grid-cols-1 md:grid-cols-2">

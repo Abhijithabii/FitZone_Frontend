@@ -6,6 +6,7 @@ import { BACKEND_BASE_URL } from "../../../common/CommonUrl";
 import UserPurchasedCourses from "./UserPurchasedCourses";
 import { BsChatDots } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
+import profilebg from '../../../../img/profilebg.jpg'
 
 function UserProfileBanner() {
   let { user, userProfile } = useContext(AuthContext);
@@ -16,7 +17,7 @@ function UserProfileBanner() {
         <figure className="relative h-80 w-full">
           <img
             className="h-full w-full bg-gray-800 object-cover object-center"
-            src="/img/profilebg.jpg"
+            src={profilebg}
             alt="nature image"
           />
           <div className="lg:px-14 mt-3">

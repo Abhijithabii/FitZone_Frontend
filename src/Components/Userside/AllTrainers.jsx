@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BACKEND_BASE_URL } from "../../common/CommonUrl";
+import trainerbg from '../../../img/course_background.avif'
 
 function AllTrainers() {
   const [trainers, setTrainers] = useState([]);
@@ -27,7 +28,7 @@ function AllTrainers() {
         <div
           className="w-full h-screen sticky top-0 "
           style={{
-            backgroundImage: "url('/img/course_background.avif')",
+            backgroundImage: {trainerbg},
             backgroundSize: "cover",
           }}
         >

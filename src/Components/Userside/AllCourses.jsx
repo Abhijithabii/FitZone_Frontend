@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import coursebg from '../../../img/course_background.avif'
 
 function AllCourses() {
   const [courses, setCourses] = useState([]);
@@ -27,7 +28,7 @@ function AllCourses() {
     <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 bg-white">
       <div className="w-full ">
         <div className="w-full h-full lg:h-screen sticky top-0 ">
-          <img className=" relative" src="/img/course_background.avif" alt="" />
+          <img className=" relative" src={coursebg} alt="" />
           {/* <h1 className=" absolute top-0 left-36 text-center pt-80 pl-16  font-serif text-6xl font-black " >
           Courses
         </h1> */}

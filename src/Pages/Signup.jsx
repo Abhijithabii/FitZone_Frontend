@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BACKEND_BASE_URL } from "../common/CommonUrl";
 import { toast } from "react-hot-toast";
+import signupbg from '../../img/fitzonebg.jpg'
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -63,7 +64,7 @@ function Signup() {
       )}
       <div
         className="flex flex-col md:flex-row h-screen bg-cover bg-center bg-opacity-70"
-        style={{ backgroundImage: "url('/img/fitzonebg.jpg')" }}
+        style={{ backgroundImage: "url('signupbg')" }}
       >
         <div className="flex justify-center md:w-1/2 ">
           <form

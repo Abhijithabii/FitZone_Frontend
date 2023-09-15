@@ -8,6 +8,7 @@ import { TfiAnnouncement } from "react-icons/tfi";
 import { BiSolidDashboard } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineMenuFold } from "react-icons/ai";
+import fitzonelogo from '../../../img/logo.png'
 
 function AdminSidebar() {
   const [open, setOpen] = useState(true);
@@ -83,7 +84,7 @@ function AdminSidebar() {
 
         <div className=" inline-flex">
           <img
-            src="/img/logo.png" // Replace 'path/to/your/image.png' with the actual image URL or path
+            src={fitzonelogo} // Replace 'path/to/your/image.png' with the actual image URL or path
             alt="FitZone Logo"
             className={`bg-amber-300 rounded cursor-pointer block float-left mr-2 duration-500 ${
               open && "rotate-[360deg]"
