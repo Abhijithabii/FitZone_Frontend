@@ -64,7 +64,7 @@ function Signup() {
       )}
       <div
         className="flex flex-col md:flex-row h-screen bg-cover bg-center bg-opacity-70"
-        style={{ backgroundImage: "url('signupbg')" }}
+        style={{ backgroundImage: `url(${signupbg})`, }}
       >
         <div className="flex justify-center md:w-1/2 ">
           <form

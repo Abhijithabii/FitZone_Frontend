@@ -28,7 +28,7 @@ function AllTrainers() {
         <div
           className="w-full h-screen sticky top-0 "
           style={{
-            backgroundImage: {trainerbg},
+            backgroundImage: `url(${trainerbg})`,
             backgroundSize: "cover",
           }}
         >
