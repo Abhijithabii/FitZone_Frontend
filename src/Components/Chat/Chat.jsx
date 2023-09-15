@@ -58,7 +58,7 @@ const Chat = () => {
   useEffect(() => {
     if (activeRoomId) {
       socketRef.current = new WebSocket(
-        `ws://${BACKEND_BASE_URL}/ws/chat/${activeRoomId}/`
+        `ws://localhost:8000/ws/chat/${activeRoomId}/`
       );
 
       socketRef.current.onmessage = (event) => {
