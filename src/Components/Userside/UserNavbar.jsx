@@ -32,8 +32,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { BACKEND_BASE_URL } from "../../common/CommonUrl";
 
 function ProfileMenu() {
+
+  let { user, userProfile, logoutUser } = useContext(AuthContext);
   // profile menu component
-  const profileMenuItems = [
+  const profileMenuItems = user ? [
     {
       label: "My Profile",
       icon: UserCircleIcon,
@@ -42,9 +44,19 @@ function ProfileMenu() {
       label: "Sign Out",
       icon: PowerIcon,
     },
+  ]:
+  [
+    {
+      label: "Login",
+      icon: Square3Stack3DIcon,
+    },
+    {
+      label: "Register",
+      icon: Square3Stack3DIcon,
+    },
   ];
 
-  let { user, userProfile, logoutUser } = useContext(AuthContext);
+  
 
   // const userProfile = user.userprofile_set.first();
 
@@ -59,6 +71,10 @@ function ProfileMenu() {
       navigate("/profile");
     } else if (label === "Sign Out") {
       logoutUser();
+    } else if (label === 'Login') {
+      navigate("/login");
+    } else if (label === 'Register') {
+      navigate("/signup");
     }
     closeMenu(); // Close the menu after clicking any item
   };
@@ -132,16 +148,6 @@ const navListItems = [
     path: "/",
   },
 
-  // {
-  //   label: "Classes",
-  //   icon: CubeTransparentIcon,
-  //   path: "/classes"
-  // },
-  // {
-  //   label: "Schedules",
-  //   icon: CodeBracketSquareIcon,
-  //   path: "/schedules"
-  // },
 ];
 
 function NavList() {
@@ -170,6 +176,7 @@ function NavList() {
 
 function UserNavbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  let {user} = useContext(AuthContext)
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
@@ -203,7 +210,7 @@ function UserNavbar() {
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
 
-        <ProfileMenu />
+         <ProfileMenu />
       </div>
       <Collapse open={isNavOpen}>
         <NavList />
