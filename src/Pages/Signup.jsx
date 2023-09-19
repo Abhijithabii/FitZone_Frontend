@@ -64,13 +64,13 @@ function Signup() {
         </div>
       )}
       <div
-        className="flex flex-col md:flex-row h-screen bg-cover bg-center bg-opacity-70"
+        className="flex flex-col md:flex-row md:h-screen h-full bg-cover bg-center bg-opacity-70"
         style={{ backgroundImage: `url(${signupbg})`, }}
       >
         <div className="flex justify-center md:w-1/2 ">
           <form
             onSubmit={handleSubmit}
-            className="backdrop-blur-md w-3/4 shadow-md rounded-3xl px-8 mb-4 md:mt-28 h-3/4 "
+            className="backdrop-blur-md w-full sm:w-3/4 shadow-md rounded-3xl px-8 mb-4 md:mt-28 h-3/4 "
           >
             <h1 className="text-center text-white text-3xl pb-10 font-black">
               Sign UP

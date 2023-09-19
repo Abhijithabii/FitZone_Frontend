@@ -20,7 +20,7 @@ function Login() {
 return (
   <div>
     <div className='flex flex-col md:flex-row h-screen bg-blend-darken bg-cover bg-center'  style={{ backgroundImage: `url(${loginbgimage})`, backgroundSize: "cover" }}>
-      <div className="flex flex-col justify-center md:w-1/2  text-white">
+      <div className="flex flex-col justify-center md:w-1/2 pt-5  text-white">
           {/* Content here */}
         <h1 className='text-center font-black text-3xl '>Don't have an account</h1>
         <p className='font-black text-3xl py-6 text-center'>Enter Your Personal Details To Join with Us</p>
@@ -30,7 +30,7 @@ return (
       </div>
      
       <div className='w-full md:w-1/2 mx-auto'>
-        <div className="w-full md:full lg:full xl:w-2/3 xl:pt-32">
+        <div className="w-full md:full lg:full xl:w-2/3 md:pt-32">
           <div className="card shadow-2xl rounded-lg bg-blend-darken backdrop-blur-md w-full">
             <div className="card-body p-5 text-center">
               <h3 className="text-center text-white text-3xl pt-5 pb-10 font-black">Log In</h3>
