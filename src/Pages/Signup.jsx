@@ -19,6 +19,10 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!password || !username || !email || !confirmPassword) {
+      toast.error("Please fill all the fields")
+      return
+    }
 
     //checking both passwords are same
     if (password !== confirmPassword) {

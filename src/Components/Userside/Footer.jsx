@@ -4,9 +4,9 @@ function Footer() {
     
   return (
     <div>
-      <div className='w-full h-80 bg-gray-800 font-serif px-20'>
+      <div className='w-full h-full md:h-80 bg-gray-800 font-serif px-10 md:px-20'>
         <h1 className='text-white text-3xl pt-10'>FitZone</h1>
-        <div className='grid grid-cols-3 gap-4 pt-16  text-white'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 pt-16  text-white'>
             <div>
                 <h1>CONTACT</h1>
                 <p>Tel : +91 9961712741</p>

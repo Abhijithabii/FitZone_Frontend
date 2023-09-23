@@ -87,17 +87,22 @@ function ProfileMenu() {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          <Avatar
-            variant="circular"
-            size="sm"
-            alt="tania andrew"
-            className="border border-blue-500 p-0.5"
-            src={
-              userProfile && userProfile.image
-                ? `${BACKEND_BASE_URL}${userProfile.image}`
-                : "https://img.freepik.com/free-icon/user_318-159711.jpg"
-            }
-          />
+         { user ? ( 
+              <Avatar
+              variant="circular"
+              size="sm"
+              alt="tania andrew"
+              className="border border-blue-500 p-0.5"
+              src={
+                userProfile && userProfile.image
+                  ? `${BACKEND_BASE_URL}${userProfile.image}`
+                  : "https://img.freepik.com/free-icon/user_318-159711.jpg"
+              }
+            />
+         ) : ( 
+         <Button>Get Started</Button> 
+         ) } 
+         
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3 w-3 transition-transform ${

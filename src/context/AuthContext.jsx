@@ -3,6 +3,7 @@ import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom'
 import { BACKEND_BASE_URL } from '../common/CommonUrl';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext()
 
@@ -77,15 +78,18 @@ export const AuthProvider = ({children}) => {
             
             if (userdata.is_superuser === true)  {
                 navigate('/admindashboard')
+                toast.success("Login Successfull")
             }
             else if (userdata.is_staff === true) {
                 navigate('/trainer')
+                toast.success("Login Successfull")
             }
              else {
             navigate('/')
+            toast.success("Login Successfull")
             }
         } else {
-            alert('Something went wrong while logging in the user!')
+            toast.error('Something went wrong while logging in the user!')
         }
     }
 
