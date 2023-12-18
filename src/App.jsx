@@ -27,8 +27,10 @@ import TrainerProfile from './Pages/Trainer/TrainerProfile';
 import Chat from './Components/Chat/Chat';
 import TrainerChat from './Components/Chat/TrainerChat';
 
+import ReactGA from 'react-ga'
 
-
+const TRACKING_ID = "UA-273880679-2"
+ReactGA.initialize(TRACKING_ID)
 
 
 

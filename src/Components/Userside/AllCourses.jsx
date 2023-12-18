@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import coursebg from '../../../img/coursebg.jpg'
 
+
 function AllCourses() {
   const [courses, setCourses] = useState([]);
 
@@ -37,6 +38,7 @@ function AllCourses() {
           {courses
             .filter((course) => !course.is_deleted)
             .map((course, index) => (
+            
               <Link
                 to={`/classesdetails/${course.id}`}
                 className="flex justify-center transform transition-transform hover:scale-105"
