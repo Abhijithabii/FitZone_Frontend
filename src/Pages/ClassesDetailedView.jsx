@@ -35,10 +35,10 @@ function ClassesDetailedView() {
   };
 
   ReactGA.event({
-    category : courseData.course_name,
-    action: courseId,
+    category : "new category created",
+    action: "new action",
     label : "test label",
-    value : courseData.course_fee
+    value : 40
   })
   const fetchCorrespondantTrainer = async () => {
     await axios
