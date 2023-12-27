@@ -30,7 +30,7 @@ import TrainerChat from './Components/Chat/TrainerChat';
 import ReactGA from 'react-ga'
 
 const TRACKING_ID = "UA-273880679-3"
-print("New repo created for analytic")
+console.log("New repo created for analytic")
 ReactGA.initialize(TRACKING_ID)
 
 
