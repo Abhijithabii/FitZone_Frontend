@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 import { Button } from "@material-tailwind/react";
 import AuthContext from "../context/AuthContext";
 import classbg from '../../img/classbg.jpg'
-import ReactGA from 'react-ga'
+
 
 function ClassesDetailedView() {
   const [selectedTime, setSelectedTime] = useState("");
@@ -34,12 +34,7 @@ function ClassesDetailedView() {
       });
   };
 
-  ReactGA.event({
-    category : "new category created",
-    action: "new action",
-    label : "test label",
-    value : 40
-  })
+
   const fetchCorrespondantTrainer = async () => {
     await axios
       .get(`${BACKEND_BASE_URL}/adminside/related-trainers/${courseId}/`)
